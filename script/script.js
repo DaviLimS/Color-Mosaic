@@ -1,4 +1,4 @@
-function GenerateColor(min, max) {
+function generateColor(min, max) {
     let red = Math.round((Math.random() * (max - min) + min) * 100);
     let green = Math.round((Math.random() * (max - min) + min) * 100);
     let blue = Math.round((Math.random() * (max - min) + min) * 100);
