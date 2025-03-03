@@ -21,6 +21,7 @@ main {
     height: 33vh;
     border: 2px solid rgb(172, 172, 172);
     border-radius: 15px;
+    background-color: white;
 }
 
 .color-code {
