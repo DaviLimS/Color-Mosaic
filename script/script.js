@@ -3,7 +3,7 @@ function GenerateColor(min, max) {
     let green = Math.round((Math.random() * (max - min) + min) * 100);
     let blue = Math.round((Math.random() * (max - min) + min) * 100);
     let color = "rgb(" + red + ", " + green + "," + blue + ")";
-    
-    document.getElementByClassName("color-code").innerText = color;
-    document.getElementByClassName("color-display").style.backgroundColor = color;
+
+    document.getElementsByClassName("color-code").innerText = color;
+    document.getElementsByClassName("color-display").style.backgroundColor = color;
 }
