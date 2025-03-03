@@ -4,6 +4,6 @@ function GenerateColor(min, max) {
     let blue = Math.round((Math.random() * (max - min) + min) * 100);
 
     let color = red + ", " + green + "," + blue;
-    document.getElementByClass("color-code").innerText = "color";
-    document.getElementByClass("color-display").style.backgroundColor = "rgb" + color;
+    document.getElementByClassName("color-code").innerText = "color";
+    document.getElementByClassName("color-display").style.backgroundColor = "rgb(" + color + ")";
 }
