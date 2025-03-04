@@ -26,8 +26,8 @@ function typeEffect(element, text, speed, eraseSpeed = speed / 2, delayBeforeTyp
 
     function typing() {
         if (i < text.length) {
-            let char = text.charAt(i)
-            element.innerText += (char === " " ? " " : char);
+            let char = text[i];
+            element.innerText += char;
             i++;
             currentTimeout = setTimeout(typing, speed);
         }
@@ -50,7 +50,7 @@ function generateColor(min, max) {
     let colorName = getColorName(hexColor);
 
     if (colorCodeElement) {
-        typeEffect(colorCodeElement, hexColor, 50);
+        typeEffect(colorCodeElement, colorCode, 50);
     }
 
     if (colorDisplayElement) {
