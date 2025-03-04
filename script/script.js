@@ -70,8 +70,10 @@ function rgbToHex(r, g, b) {
 function getColorName(hex) {
     if (typeof ntc !== "undefined") {
         let colorMatch = ntc.name(hex);
-        return colorMatch[1];
+        console.log("Resultado ntc.name:", colorMatch);
+        return colorMatch ? colorMatch[1] : "Cor desconhecida";
     }
+    console.error("ntc.js não foi carregado!");
     return "Cor desconhecida";
 }
 
