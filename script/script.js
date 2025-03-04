@@ -43,7 +43,7 @@ document.querySelector(".color-generator").addEventListener("click", function ()
     }
     lastClickTime = currentTime;
 
-    if(clickNum == 10) {
+    if(clickNum == 5) {
         alert("Calma bb, pqq vc tá clicando tão rápido?? Tá com raiva tá? kkkkkkkkkkkkkkk");
     }
 })
