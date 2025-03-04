@@ -53,7 +53,7 @@ function generateColor(min, max) {
     }
 
     if (colorDisplayElement) {
-        colorDisplayElement.style.backgroundColor = color;
+        colorDisplayElement.style.backgroundColor = colorCode;
     }
 
     if (colorNameElement) {
