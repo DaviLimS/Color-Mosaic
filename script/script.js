@@ -26,7 +26,8 @@ function typeEffect(element, text, speed, eraseSpeed = speed / 2, delayBeforeTyp
 
     function typing() {
         if (i < text.length) {
-            element.innerText += text.charAt(i);
+            let char = text.charAt(i)
+            element.innerText += char;
             element.innerText += char === " " ? " " : char;
             i++;
             currentTimeout = setTimeout(typing, speed);
