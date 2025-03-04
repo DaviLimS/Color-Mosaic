@@ -35,18 +35,6 @@ function typeEffect(element, text, speed, eraseSpeed = speed / 2, delayBeforeTyp
     eraseText();
 }
 
-function rgbToHex(r, g, b) {
-    return "#" + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase();
-}
-
-function getColorName(hex) {
-    if (typeof ntc !== "undefined") {
-        let colorMatch = ntc.name(hex);
-        return colorMatch[1];
-    }
-    return "Cor desconhecida";
-}
-
 function generateColor(min, max) {
     let red = Math.round((Math.random() * (max - min) + min));
     let green = Math.round((Math.random() * (max - min) + min));
@@ -73,6 +61,18 @@ function generateColor(min, max) {
     }
 
     console.log("Hex Color:", hexColor, "Color Name:", colorName);
+}
+
+function rgbToHex(r, g, b) {
+    return "#" + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase();
+}
+
+function getColorName(hex) {
+    if (typeof ntc !== "undefined") {
+        let colorMatch = ntc.name(hex);
+        return colorMatch[1];
+    }
+    return "Cor desconhecida";
 }
 
 let lastClickTime = 0;
