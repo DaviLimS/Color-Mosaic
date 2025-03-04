@@ -60,7 +60,7 @@ function generateColor(min, max) {
         typeEffect(colorNameElement, colorName, 50)
     }
 
-    console.log("Hex Color:", hexColor, "Color Name:", colorName);
+    console.log("Color Code:", colorCode, "Hex:", hexColor, "Nome:", colorName);
 }
 
 function rgbToHex(r, g, b) {
