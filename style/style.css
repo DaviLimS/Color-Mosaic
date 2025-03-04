@@ -17,11 +17,21 @@ main {
     align-items: center;
 }
 
+.container {
+    width: 400px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .color-display {
     width: 300px;
     height: 300px;
     border: 2px solid rgb(172, 172, 172);
-    border-radius: 15px;
+    border-radius: 25px;
     transition: background-color 1s ease-in-out;
 }
 
@@ -67,7 +77,7 @@ main {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 100%;
+  max-width: 100%;
   will-change: transform;
 }
 

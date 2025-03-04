@@ -1,20 +1,18 @@
-let currentTimeout = null;
+let currentTimeouts = [];
 
-function typeEffect(element, text, speed, eraseSpeed = speed / 2, delayBeforeTyping = 300) {
-    if (currentTimeout) {
-        clearTimeout(currentTimeout);
-    }
+function typeEffect(element, text, speed, eraseSpeed = speed, delayBeforeTyping = 300) {
+    // Limpa todos os timeouts anteriores
+    currentTimeouts.forEach(timeout => clearTimeout(timeout));
+    currentTimeouts = [];
     
     let i = 0;
-    let textLength = element.innerText.length;
 
     function eraseText() {
-        if (textLength > 0) {
+        if (element.innerText.length > 0) {
             element.innerText = element.innerText.slice(0, -1);
-            textLength--;
-            currentTimeout = setTimeout(eraseText, eraseSpeed);
+            currentTimeouts.push(setTimeout(eraseText, eraseSpeed));
         } else {
-            currentTimeout = setTimeout(startTyping, delayBeforeTyping);
+            currentTimeouts.push(setTimeout(startTyping, delayBeforeTyping));
         }
     }
 
@@ -27,9 +25,10 @@ function typeEffect(element, text, speed, eraseSpeed = speed / 2, delayBeforeTyp
     function typing() {
         if (i < text.length) {
             let char = text[i];
-            element.innerText += char;
+            element.innerHTML += char; // Use innerHTML para garantir que os espaços não sejam removidos
+            
             i++;
-            currentTimeout = setTimeout(typing, speed);
+            currentTimeouts.push(setTimeout(typing, speed));
         }
     }
 
@@ -50,7 +49,7 @@ function generateColor(min, max) {
     let colorName = getColorName(hexColor);
 
     if (colorCodeElement) {
-        typeEffect(colorCodeElement, colorCode, 50);
+        colorCodeElement.innerText = `Red: ${red} - Green: ${green} - Blue: ${blue}`;
     }
 
     if (colorDisplayElement) {
@@ -58,7 +57,7 @@ function generateColor(min, max) {
     }
 
     if (colorNameElement) {
-        typeEffect(colorNameElement, colorName, 50)
+        typeEffect(colorNameElement, colorName, 50);
     }
 
     console.log("Color Code:", colorCode, "Hex:", hexColor, "Nome:", colorName);
@@ -75,7 +74,12 @@ function getColorName(hex) {
     if (typeof ntc !== "undefined") {
         let colorMatch = ntc.name(hex);
         console.log("Resultado ntc.name:", colorMatch);
-        return colorMatch ? colorMatch[1] : "Cor desconhecida";
+        if (colorMatch) {
+            let colorName = colorMatch[1];
+            colorName = colorName.replace(/(?!^)([A-Z])/g, ' $1'); // Adiciona espaço antes das letras maiúsculas, exceto a primeira
+            return colorName;
+        }
+        return "Cor desconhecida";
     }
     console.error("ntc.js não foi carregado!");
     return "Cor desconhecida";
@@ -100,4 +104,6 @@ document.querySelector(".color-generator").addEventListener("click", function ()
         alert("Calma bb, pqq vc tá clicando tão rápido?? Tá com raiva tá? kkkkkkkkkkkkkkk");
         clickNum = 0;
     }
+
+    generateColor(0, 255);
 });
