@@ -21,7 +21,7 @@ function generateColor(min, max) {
     let colorDisplay = document.querySelector(".color-display");
 
     if (colorCode) {
-        typeEffect(colorCodeElement, color, 50);
+        typeEffect(colorCode, color, 50);
     }
 
     if (colorDisplay) {
