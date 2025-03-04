@@ -3,7 +3,7 @@ function typeEffect(element, text, speed) {
     element.innerText = "";
     function typing() {
         if (i < text.lenght) {
-            element.innerText += text.chartAt(i);
+            element.innerText += text.charAt(i);
             i++;
             setTimeout(typing, speed);
         }
@@ -12,9 +12,9 @@ function typeEffect(element, text, speed) {
 }
 
 function generateColor(min, max) {
-    let red = Math.round((Math.random() * (max - min) + min) * 1000);
-    let green = Math.round((Math.random() * (max - min) + min) * 1000);
-    let blue = Math.round((Math.random() * (max - min) + min) * 1000);
+    let red = Math.round((Math.random() * (max - min) + min));
+    let green = Math.round((Math.random() * (max - min) + min));
+    let blue = Math.round((Math.random() * (max - min) + min));
     let color = `rgb(${red}, ${green}, ${blue})`;
 
     let colorCode = document.querySelector(".color-code");
