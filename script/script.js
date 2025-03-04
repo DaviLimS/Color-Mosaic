@@ -2,7 +2,7 @@ function typeEffect(element, text, speed) {
     let i = 0;
     element.innerText = "";
     function typing() {
-        if (i < text.lenght) {
+        if (i < text.length) {
             element.innerText += text.charAt(i);
             i++;
             setTimeout(typing, speed);
