@@ -1,4 +1,4 @@
-let currentTimeout = null
+let currentTimeout = null;
 
 function typeEffect(element, text, speed, eraseSpeed = speed / 2, delayBeforeTyping = 300) {
     if (currentTimeout) {
@@ -6,15 +6,15 @@ function typeEffect(element, text, speed, eraseSpeed = speed / 2, delayBeforeTyp
     }
     
     let i = 0;
-    element.innerText = "";
-    let typeTimeout;
+    let textLength = element.innerText.length;
 
     function eraseText() {
-        if (element.innerText.length > 0) {
-            element.innerText = element.innerText.slice(0, -1)
-            setTimeout(eraseText, eraseSpeed);
+        if (textLength > 0) {
+            element.innerText = element.innerText.slice(0, -1);
+            textLength--;
+            currentTimeout = setTimeout(eraseText, eraseSpeed);
         } else {
-            setTimeout(startTyping, delayBeforeTyping)
+            currentTimeout = setTimeout(startTyping, delayBeforeTyping);
         }
     }
 
@@ -28,10 +28,10 @@ function typeEffect(element, text, speed, eraseSpeed = speed / 2, delayBeforeTyp
         if (i < text.length) {
             element.innerText += text.charAt(i);
             i++;
-            typeTimeout = setTimeout(typing, speed);
+            currentTimeout = setTimeout(typing, speed);
         }
     }
-    clearTimeout(typeTimeout);
+
     eraseText();
 }
 
@@ -59,16 +59,17 @@ let clickNum = 0;
 
 document.querySelector(".color-generator").addEventListener("click", function () {
     let currentTime = new Date().getTime();
-    if(currentTime - lastClickTime < clickSpeedLimit) {
+    
+    if (currentTime - lastClickTime < clickSpeedLimit) {
         clickNum++;
+    } else {
+        clickNum = 1;
     }
-    else {
-        clickNum = 0;
-    }
+
     lastClickTime = currentTime;
 
-    if(clickNum == 5) {
+    if (clickNum >= 5) {
         alert("Calma bb, pqq vc tá clicando tão rápido?? Tá com raiva tá? kkkkkkkkkkkkkkk");
         clickNum = 0;
     }
-})
+});
