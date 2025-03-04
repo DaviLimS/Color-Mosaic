@@ -49,7 +49,7 @@ function generateColor(min, max) {
     let colorName = getColorName(hexColor);
 
     if (colorCodeElement) {
-        typeEffect(colorCodeElement, color, 50);
+        typeEffect(colorCodeElement, colorCode, 50);
     }
 
     if (colorDisplayElement) {
