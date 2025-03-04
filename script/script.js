@@ -1,14 +1,32 @@
-function typeEffect(element, text, speed) {
+function typeEffect(element, text, speed, eraseSpeed = speed / 2, delayBeforeTyping = 300) {
     let i = 0;
     element.innerText = "";
+    let typeTimeout;
+
+    function eraseText() {
+        if (element.innerText.length > 0) {
+            element.innerText = element.innerText.slice(0, -1)
+            setTimeout(eraseText, eraseSpeed);
+        } else {
+            setTimeout(startTyping, delayBeforeTyping)
+        }
+    }
+
+    function startTyping() {
+        i = 0;
+        element.innerText = "";
+        typing();
+    }
+
     function typing() {
         if (i < text.length) {
             element.innerText += text.charAt(i);
             i++;
-            setTimeout(typing, speed);
+            typeTimeout = setTimeout(typing, speed);
         }
     }
-    typing();
+    clearTimeout(typeTimeout);
+    eraseText();
 }
 
 function generateColor(min, max) {
