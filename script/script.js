@@ -39,17 +39,36 @@ function generateColor(min, max) {
     let red = Math.round((Math.random() * (max - min) + min));
     let green = Math.round((Math.random() * (max - min) + min));
     let blue = Math.round((Math.random() * (max - min) + min));
-    let color = `rgb(${red}, ${green}, ${blue})`;
+    let colorCode = `rgb(${red}, ${green}, ${blue})`;
 
-    let colorCode = document.querySelector(".color-code");
-    let colorDisplay = document.querySelector(".color-display");
+    let colorCodeElement = document.querySelector(".color-code");
+    let colorDisplayElement = document.querySelector(".color-display");
+    let colorNameElement = document.querySelector(".color-name");
 
-    if (colorCode) {
-        typeEffect(colorCode, color, 50);
+    let hexColor = rgbToHex(red, green, blue);
+    let colorName = getColorName(hexColor);
+
+    if (colorCodeElement) {
+        typeEffect(colorCodeElement, color, 50);
     }
 
-    if (colorDisplay) {
-        colorDisplay.style.backgroundColor = color;
+    if (colorDisplayElement) {
+        colorDisplayElement.style.backgroundColor = color;
+    }
+
+    if (colorNameElement) {
+        typeEffect(colorNameElement, colorName, 50)
+    }
+}
+
+function rgbToHex(r, g, b) {
+    return "#" + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase();
+}
+
+function getColorName(hex) {
+    if (typeof ntc !== "undefined") {
+        let colorMatch = ntc.name(hex);
+        return colorMatch[1];
     }
 }
 

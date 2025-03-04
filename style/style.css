@@ -26,12 +26,21 @@ main {
 }
 
 .color-code {
-    height: 43px;
+    height: 30px;
     font-family: "Nunito", serif;
     font-weight: 500;
-    margin-top: 30px;
+    margin-top: 15px;
     margin-bottom: 40px;
     text-align: center;
+}
+
+.color-name {
+  height: 43px;
+  font-family: "Nunito", serif;
+  font-weight: 500;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .color-generator {
