@@ -17,11 +17,10 @@ main {
 }
 
 .color-display {
-    width: 40vw;
+    width: 38vw;
     height: 33vh;
     border: 2px solid rgb(172, 172, 172);
     border-radius: 15px;
-    background-color: white;
     transition: background-color 0.5s ease-in-out;
 }
 
