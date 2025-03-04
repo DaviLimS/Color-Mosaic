@@ -1,4 +1,10 @@
+let currentTimeout = null
+
 function typeEffect(element, text, speed, eraseSpeed = speed / 2, delayBeforeTyping = 300) {
+    if (currentTimeout) {
+        clearTimeout(currentTimeout);
+    }
+    
     let i = 0;
     element.innerText = "";
     let typeTimeout;
@@ -63,5 +69,6 @@ document.querySelector(".color-generator").addEventListener("click", function ()
 
     if(clickNum == 5) {
         alert("Calma bb, pqq vc tá clicando tão rápido?? Tá com raiva tá? kkkkkkkkkkkkkkk");
+        clickNum = 0;
     }
 })
