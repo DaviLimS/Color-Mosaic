@@ -25,6 +25,7 @@ main {
 }
 
 .color-code {
+    height: 43px;
     font-family: "Nunito", serif;
     font-weight: 500;
     margin-top: 30px;
