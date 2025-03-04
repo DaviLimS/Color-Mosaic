@@ -17,8 +17,8 @@ main {
 }
 
 .color-display {
-    width: 33vh;
-    height: 33vh;
+    width: 40vh;
+    height: 40vh;
     border: 2px solid rgb(172, 172, 172);
     border-radius: 15px;
     transition: background-color 0.5s ease-in-out;
