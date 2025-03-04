@@ -21,7 +21,7 @@ main {
     height: 40vh;
     border: 2px solid rgb(172, 172, 172);
     border-radius: 15px;
-    transition: background-color 2s ease-in-out;
+    transition: background-color 1s ease-in-out;
 }
 
 .color-code {
