@@ -50,7 +50,7 @@ function generateColor(min, max) {
     let colorName = getColorName(hexColor);
 
     if (colorCodeElement) {
-        typeEffect(colorCodeElement, colorCode, 50);
+        typeEffect(colorCodeElement, hexColor, 50);
     }
 
     if (colorDisplayElement) {
