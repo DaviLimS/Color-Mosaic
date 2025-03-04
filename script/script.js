@@ -44,6 +44,7 @@ function getColorName(hex) {
         let colorMatch = ntc.name(hex);
         return colorMatch[1];
     }
+    return "Cor desconhecida";
 }
 
 function generateColor(min, max) {
