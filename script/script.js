@@ -62,6 +62,9 @@ function generateColor(min, max) {
     }
 
     console.log("Color Code:", colorCode, "Hex:", hexColor, "Nome:", colorName);
+    console.log(typeof colorCode);
+    console.log(typeof hexColor);
+    console.log(typeof colorName);
 }
 
 function rgbToHex(r, g, b) {
